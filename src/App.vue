@@ -1,14 +1,35 @@
 <template>
   <div id="app">
+    <!-- <loading :active.sync="isLoading"></loading> -->
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      isLoading: false
+    }
+  },
+  mounted () {
+    // this.isLoading = true
+    // setTimeout(() => {
+    //   this.isLoading = false
+    // }, 3000)
+    // this.$http.get(api).then((response) => {
+    //   console.log(response.data)
+    // })
+  }
+}
+</script>
+
 <style lang="scss">
+@import '~bootstrap/scss/bootstrap';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
