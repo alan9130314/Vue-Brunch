@@ -31,6 +31,21 @@ const routes = [
         path: '/cart',
         name: '購物車',
         component: () => import('../views/Cart.vue')
+      },
+      {
+        path: '/about',
+        name: '關於我們',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: '/checkout',
+        name: '結帳',
+        component: () => import('../views/Checkout.vue')
+      },
+      {
+        path: '/checkout_complete',
+        name: '結帳完成',
+        component: () => import('../views/CheckoutComplete.vue')
       }
     ]
   },
@@ -48,8 +63,16 @@ const routes = [
         component: () => import('../views/dashboard/Products.vue')
       },
       {
+        path: 'orders',
+        component: () => import('../views/dashboard/Orders.vue')
+      },
+      {
         path: 'coupons',
         component: () => import('../views/dashboard/Coupons.vue')
+      },
+      {
+        path: 'pictures',
+        component: () => import('../views/dashboard/Pictures.vue')
       }
     ]
   }

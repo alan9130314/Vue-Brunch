@@ -1,12 +1,12 @@
 <template>
-  <div class="about">
-    <h1>關於我們</h1>
+  <div>
+    這裡是 圖片儲存列表
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Pictures',
   data () {
     return {
     }
