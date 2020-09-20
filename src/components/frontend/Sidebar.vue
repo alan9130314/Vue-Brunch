@@ -3,7 +3,7 @@
     <a @click.prevent=""
       class="navbar-brand"
       href="#"
-    >Vue</a>
+    >Vue 前台管理系統</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -26,13 +26,13 @@
             class="nav-link"
             :to="{ name: 'Home'}"
           >
-            前台首頁
+            首頁
           </router-link>
         </li>
         <li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{ name: '產品頁面'}"
+            :to="{ name: '前台產品頁面'}"
           >
             產品列表
           </router-link>
@@ -40,42 +40,17 @@
         <li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{ name: '優惠券'}"
+            :to="{ name: '關於我們'}"
           >
-            優惠卷列表
+            關於我們
           </router-link>
         </li><li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{ name: '圖片頁面'}"
+            :to="{ name: '結帳'}"
           >
-            圖片頁面
+            結帳
           </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            :to="{ name: '訂單列表'}"
-          >
-            訂單列表
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            :to="{ name: '用戶訂單'}"
-          >
-            模擬下單系統
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#"
-            @click.prevent="signOut"
-          >
-            登出
-          </a>
         </li>
       </ul>
     </div>

@@ -17,7 +17,8 @@ export default {
     console.log(this.$route.params.id)
     // 屬性 $route
     // 方法 $router
-    const { id } = this.$route.params // 解構方式
+    const id = this.$route.params.id
+    // const { id } = this.$route.params // 解構方式
     this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/product/${id}`)
       .then(res => {
         console.log(res)

@@ -264,7 +264,6 @@ export default {
         // 由於 const 與 let 宣告環境較特別，故需要在 case 外層宣告一個 {} 確保作用域
         case 'edit': {
           this.tempCoupon = { ...item }
-          console.log(this.tempCoupon.deadline.datetime)
           // 使用 split 切割相關時間戳
           const dedlineAt = this.tempCoupon.deadline.datetime.split(' ');
           [this.due_date, this.due_time] = dedlineAt // 日期

@@ -1,35 +1,20 @@
 <template>
   <div class="home">
+    <Sidebar />
     <div id="nav">
-      <router-link to="/">前台頁面</router-link> |
-      <router-link to="/products">產品列表</router-link> |
-      <router-link to="/about">關於我們</router-link> |
-      <router-link to="/checkout">結帳頁面</router-link> |
-      <router-link to="/cart">購物車</router-link> |
-      <router-link to="/admin/products">後台產品列表</router-link>
-        <img
-        alt="Vue logo"
-        src="@/assets/logo.png"
-      >
-      <router-link
-        class="btn btn-outline-primary"
-        to="/login"
-      >
-        登入後台
-      </router-link>
     </div>
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-
+import Sidebar from '@/components/frontend/Sidebar.vue'
 export default {
   name: 'Home',
   components: {
-
+    Sidebar
   }
 }
 </script>

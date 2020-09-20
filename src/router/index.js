@@ -14,10 +14,6 @@ const routes = [
     component: () => import('../views/frontend/Home.vue'),
     children: [
       {
-        path: '',
-        component: () => import('../views/frontend/Index.vue')
-      },
-      {
         path: '/products',
         name: '前台產品頁面',
         component: () => import('../views/frontend/Products.vue')
@@ -77,10 +73,6 @@ const routes = [
         path: 'coupons',
         name: '優惠券',
         component: () => import('../views/backend/Coupons.vue')
-      },
-      {
-        path: 'pictures',
-        component: () => import('../views/backend/Pictures.vue')
       },
       {
         path: 'storages',
