@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d21eaef"],{d739:function(n,e,t){"use strict";t.r(e);var u=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[n._v(" 這裡是 圖片儲存列表 ")])},a=[],c={name:"Pictures",data:function(){return{}}},r=c,i=t("2877"),l=Object(i["a"])(r,u,a,!1,null,null,null);e["default"]=l.exports}}]);
-//# sourceMappingURL=chunk-2d21eaef.42282778.js.map

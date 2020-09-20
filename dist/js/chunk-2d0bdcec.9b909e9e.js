@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0bdcec"],{"2e25":function(n,e,t){"use strict";t.r(e);var u=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[n._v(" 這裡是 coupons ")])},c=[],o={name:"Coupons",data:function(){return{}}},a=o,r=t("2877"),s=Object(r["a"])(a,u,c,!1,null,null,null);e["default"]=s.exports}}]);
-//# sourceMappingURL=chunk-2d0bdcec.9b909e9e.js.map
