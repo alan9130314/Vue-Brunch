@@ -1,10 +1,9 @@
 <template>
   <div class="home">
     <Sidebar />
-    <div id="nav">
-    </div>
     <router-view></router-view>
   </div>
+
 </template>
 
 <script>

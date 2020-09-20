@@ -3,7 +3,7 @@
     <a @click.prevent=""
       class="navbar-brand"
       href="#"
-    >Vue 前台管理系統</a>
+    >Vue Frontend</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -24,9 +24,9 @@
         <li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{ name: 'Home'}"
+            :to="{ name: '後台'}"
           >
-            首頁
+            後台
           </router-link>
         </li>
         <li class="nav-item">
@@ -44,7 +44,8 @@
           >
             關於我們
           </router-link>
-        </li><li class="nav-item">
+        </li>
+        <li class="nav-item">
           <router-link
             class="nav-link"
             :to="{ name: '結帳'}"

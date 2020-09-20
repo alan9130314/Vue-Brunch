@@ -3,7 +3,7 @@
     <a @click.prevent=""
       class="navbar-brand"
       href="#"
-    >Vue</a>
+    >Vue Backend</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -26,7 +26,7 @@
             class="nav-link"
             :to="{ name: 'Home'}"
           >
-            前台首頁
+            前台
           </router-link>
         </li>
         <li class="nav-item">
@@ -91,7 +91,9 @@ export default {
   },
   methods: {
     signOut () {
-      this.$cookies.remove('token')
+      document.cookie = 'hexToken=;expires=;'
+      // console.log('token 已清除')
+      // this.$cookies.remove('hexToken')
 
       this.$bus.$emit('message:push',
         '登出成功',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Sidebar />
+    <Sidebar :token="token"/>
     <div class="container-fluid">
       <div class="row">
         <main
