@@ -11,68 +11,93 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../views/frontend/Home.vue'),
     children: [
       {
         path: '',
-        component: () => import('../views/Index.vue')
+        component: () => import('../views/frontend/Index.vue')
       },
       {
         path: '/products',
-        name: 'Pro產品列表ducts',
-        component: () => import('../views/Products.vue')
+        name: '前台產品頁面',
+        component: () => import('../views/frontend/Products.vue')
       },
       {
         path: '/product/:id', // 動態路由 - 路徑後面加上冒號 : ，再給上參數的暱稱
-        name: '產品頁面',
-        component: () => import('../views/Product.vue')
+        component: () => import('../views/frontend/Product.vue')
       },
       {
         path: '/cart',
         name: '購物車',
-        component: () => import('../views/Cart.vue')
+        component: () => import('../views/frontend/Cart.vue')
       },
       {
         path: '/about',
         name: '關於我們',
-        component: () => import('../views/About.vue')
+        component: () => import('../views/frontend/About.vue')
       },
       {
         path: '/checkout',
         name: '結帳',
-        component: () => import('../views/Checkout.vue')
+        component: () => import('../views/frontend/Checkout.vue')
       },
       {
         path: '/checkout_complete',
         name: '結帳完成',
-        component: () => import('../views/CheckoutComplete.vue')
+        component: () => import('../views/frontend/CheckoutComplete.vue')
       }
     ]
   },
   // 巢狀路由
   {
     path: '/login',
-    component: () => import('../views/dashboard/Login.vue')
+    name: 'Admin 頁面',
+    component: () => import('../views/frontend/Login.vue')
   },
   {
     path: '/admin',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('../views/backend/layout/Dashboard.vue'),
     children: [
       {
         path: 'products',
-        component: () => import('../views/dashboard/Products.vue')
+        name: '產品頁面',
+        component: () => import('../views/backend/Products.vue')
+      },
+      {
+        path: 'Storages',
+        name: '圖片頁面',
+        component: () => import('../views/backend/Storages.vue')
       },
       {
         path: 'orders',
-        component: () => import('../views/dashboard/Orders.vue')
+        name: '訂單列表',
+        component: () => import('../views/backend/Orders.vue')
       },
       {
         path: 'coupons',
-        component: () => import('../views/dashboard/Coupons.vue')
+        name: '優惠券',
+        component: () => import('../views/backend/Coupons.vue')
       },
       {
         path: 'pictures',
-        component: () => import('../views/dashboard/Pictures.vue')
+        component: () => import('../views/backend/Pictures.vue')
+      },
+      {
+        path: 'storages',
+        name: '圖片列表',
+        component: () => import('../views/backend/Storages.vue'),
+        meta: { requiresAuth: true }
+      },
+      // Customer
+      {
+        path: 'customer_order',
+        name: '用戶訂單',
+        component: () => import('../views/backend/CustomerOrders.vue')
+      },
+      {
+        path: 'customer_checkout/:orderId',
+        name: '用戶訂單列表',
+        component: () => import('../views/backend/CustomerCheckout.vue')
       }
     ]
   }

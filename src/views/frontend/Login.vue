@@ -53,7 +53,6 @@ export default {
         const { expired } = response.data
         // 寫入 cookie token
         // expires 設置有效時間
-        console.log(response)
         document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
         this.$router.push('/admin/products')
       }).catch((error) => {

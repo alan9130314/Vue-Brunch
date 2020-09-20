@@ -7,8 +7,18 @@
       <router-link to="/checkout">結帳頁面</router-link> |
       <router-link to="/cart">購物車</router-link> |
       <router-link to="/admin/products">後台產品列表</router-link>
+        <img
+        alt="Vue logo"
+        src="@/assets/logo.png"
+      >
+      <router-link
+        class="btn btn-outline-primary"
+        to="/login"
+      >
+        登入後台
+      </router-link>
     </div>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 

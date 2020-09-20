@@ -18,6 +18,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   name: 'Products',
   data () {
@@ -39,6 +40,9 @@ export default {
         console.log(res)
         this.products = res.data.data
       })
+  },
+  mounted () {
+    console.log($('button'))
   }
 }
 </script>
