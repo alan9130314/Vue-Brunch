@@ -7,6 +7,8 @@
 
 <script>
 import Toast from '@/components/Toasts.vue'
+// import Navbar from '@/components/frontend/Navbar.vue'
+
 export default {
   name: 'App',
   components: {
@@ -22,6 +24,7 @@ export default {
 
 <style lang="scss">
 @import '~bootstrap/scss/bootstrap';
+@import './assets/all';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -70,4 +70,20 @@ export default {
 </script>
 
 <style lang="scss">
+  .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: #000000d9;
+      border-color: #000000d9;
+  }
+  .page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #000000d9;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
 </style>

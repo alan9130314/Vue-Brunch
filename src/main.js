@@ -7,7 +7,7 @@ import {
   ValidationProvider, configure, localize, extend
 } from 'vee-validate' // 驗證套件
 import * as rules from 'vee-validate/dist/rules' // 規則檔案（ex: email...）
-import zhTW from 'vee-validate/dist/locale/zh_TW.json' // 語系檔案
+import zhTW from 'vee-validate/dist/locale/zh_TW.json' // 驗證語系檔案
 import 'bootstrap'
 // Bus
 import './bus'
@@ -36,16 +36,17 @@ Vue.component('Loading', Loading)
 // vee-validate
 Object.keys(rules).forEach((rule) => {
   extend(rule, rules[rule])
-}) // 所有驗證規則
+})
+// 所有驗證規則
 configure({
   classes: {
     valid: 'is-valid',
     invalid: 'is-invalid'
   }
 })
-localize('tw', zhTW)
-Vue.component('ValidationObserver', ValidationObserver)
-Vue.component('ValidationProvider', ValidationProvider)
+localize('tw', zhTW) // 語系
+Vue.component('ValidationObserver', ValidationObserver)// form驗證
+Vue.component('ValidationProvider', ValidationProvider)// input驗證
 
 new Vue({
   router,

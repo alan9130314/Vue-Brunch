@@ -1,45 +1,52 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/frontend/Shop.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '*',
-    component: () => import('/') // 導回首頁
+    redirect: '/' // 導回首頁
   },
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('../views/frontend/Home.vue'),
+    path: '/', // 外圍的版
+    // name: '首頁',
+    component: Home,
     children: [
       {
+        path: '', // 首頁
+        name: 'Home',
+        component: () => import('../views/frontend/Home.vue')
+      },
+      {
         path: '/products',
-        name: '前台產品頁面',
+        name: 'products',
         component: () => import('../views/frontend/Products.vue')
       },
       {
         path: '/product/:id', // 動態路由 - 路徑後面加上冒號 : ，再給上參數的暱稱
+        name: 'product',
         component: () => import('../views/frontend/Product.vue')
       },
       {
         path: '/cart',
-        name: '購物車',
+        name: 'cart',
         component: () => import('../views/frontend/Cart.vue')
       },
       {
         path: '/about',
-        name: '關於我們',
+        name: 'about',
         component: () => import('../views/frontend/About.vue')
       },
       {
         path: '/checkout',
-        name: '結帳',
+        name: 'checkout',
         component: () => import('../views/frontend/Checkout.vue')
       },
       {
-        path: '/checkout_complete',
-        name: '結帳完成',
+        path: '/checkout_complete/:orderId',
+        name: 'checkout_complete',
         component: () => import('../views/frontend/CheckoutComplete.vue')
       }
     ]
@@ -52,7 +59,7 @@ const routes = [
   },
   {
     path: '/admin',
-    name: '後台',
+    name: 'admin',
     component: () => import('../views/backend/layout/Dashboard.vue'),
     children: [
       {

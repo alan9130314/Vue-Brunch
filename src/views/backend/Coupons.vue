@@ -14,6 +14,7 @@
         <tr>
           <th>名稱</th>
           <th>折扣百分比</th>
+          <th>折扣碼</th>
           <th>到期日</th>
           <th>是否啟用</th>
           <th>編輯</th>
@@ -26,6 +27,7 @@
         >
           <td>{{ item.title }}</td>
           <td>{{ item.percent }}</td>
+          <td>{{ item.code }}</td>
           <td>{{ item.deadline.datetime }}</td>
           <td>
             <span
@@ -142,8 +144,8 @@
                   v-model="tempCoupon.enabled"
                   class="form-check-input"
                   type="checkbox"
-                  :true-value="1"
-                  :false-value="0"
+                  :true-value="true"
+                  :false-value="false"
                 >
                 <label
                   class="form-check-label"
@@ -307,7 +309,7 @@ export default {
       // 針對日期做組合重新寫入到物件中
       // 日期格式 Y-m-d H:i:s，例如：「2020-06-16 09:31:18」
       this.tempCoupon.deadline_at = `${this.due_date} ${this.due_time}`
-
+      console.log(this.tempCoupon)
       this.$http[httpMethod](api, this.tempCoupon).then(() => {
         $('#couponModal').modal('hide')
         this.$bus.$emit('message:push',

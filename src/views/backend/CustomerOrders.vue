@@ -215,8 +215,7 @@
           </thead>
           <tbody v-if="cart.length">
             <tr
-              v-for="item in cart"
-              :key="item.id"
+              v-for="item in cart" :key="item.id"
             >
               <td class="align-middle">
                 <button
@@ -400,11 +399,11 @@
             </validation-provider>
           </div>
           <div class="form-group">
-            <label for="message">購買方式</label>
+            <label for="payment">購買方式</label>
             <select
               v-model="form.payment"
               class="form-control"
-              required
+              required id="payment"
             >
               <option
                 value=""

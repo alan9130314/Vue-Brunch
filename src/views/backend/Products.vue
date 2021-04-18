@@ -250,7 +250,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              @click="updateProduct"
+              @click="updateProduct(pagination.current_page)"
             >
               確認
             </button>
@@ -392,7 +392,7 @@ export default {
           break
       }
     },
-    updateProduct () {
+    updateProduct (page) {
       const vm = this
       // 新增商品
       let api = `${process.env.VUE_APP_APIPATH}api/${this.uuid}/admin/ec/product`
@@ -415,7 +415,7 @@ export default {
 
         this.isLoading = false
 
-        this.getProducts()
+        this.getProducts(page)
       }).catch((error) => {
         this.isLoading = false
         // 將錯誤訊息的物件一個一個推出並送至Toast元件

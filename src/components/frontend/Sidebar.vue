@@ -3,7 +3,7 @@
     <a @click.prevent=""
       class="navbar-brand"
       href="#"
-    >Vue Frontend</a>
+    >Vue 前台</a>
     <button
       class="navbar-toggler"
       type="button"
