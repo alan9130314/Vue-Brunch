@@ -1,5 +1,5 @@
 <template>
-    <div id="Footer" class="mt-5">
+    <div id="Footer" class="">
       <div class="container">
         <div class="d-flex align-items-center justify-content-between text-white py-4">
           <p class="mb-0">© 2021 LOGO All Rights Reserved.</p>

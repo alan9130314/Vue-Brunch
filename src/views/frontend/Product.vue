@@ -1,5 +1,5 @@
 <template>
-  <div id="Product">
+  <div id="Product" class="py-3">
     <Loading :active.sync="isLoading" />
 
     <div class="container">
@@ -152,6 +152,6 @@ export default {
 </script>
 <style lang="scss">
   #Product{
-    height: 100vh;
+    height: 100%;
   }
 </style>
