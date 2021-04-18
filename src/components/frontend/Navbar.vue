@@ -10,7 +10,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse bg-transparent custom-header-md-open" id="navbarNav">
-        <ul class="navbar-nav bg-dark">
+        <ul class="navbar-nav">
           <li class="nav-item ">
             <!-- <a class="nav-link pl-0" href="./product.html">產品列表</a> -->
             <router-link class="nav-link" :to="{ name: 'products'}" >產品列表</router-link>
@@ -81,6 +81,9 @@ export default {
       height: 5rem;
       z-index: 99;
     }
+  }
+  ul.navbar-nav{
+    background-color: rgb(38,38,38);
   }
   .navbar-dark .navbar-nav .active > .nav-link{
     color: #C39A5A;
