@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d5c99"],{"707a":function(e,t,n){"use strict";n.r(t);var c=function(){var e=this,t=e.$createElement;e._self._c;return e._m(0)},u=[function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"CheckoutComplete"},[n("h1",[e._v("This is 結帳頁面完成頁面")])])}],a={name:"CheckoutComplete",data:function(){return{}}},s=a,l=n("2877"),r=Object(l["a"])(s,c,u,!1,null,null,null);t["default"]=r.exports}}]);
-//# sourceMappingURL=chunk-2d0d5c99.8d6e2f99.js.map
