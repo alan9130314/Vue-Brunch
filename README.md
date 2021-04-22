@@ -1,6 +1,6 @@
 # demo apge 
 Github Pages:
-http://localhost:8080/Week6/dist/#/
+https://alan9130314.github.io/Week6/dist/#/
 
 Skills:
 Vue 2, Vue CLI, Axios, JavaScript, JQuery,
