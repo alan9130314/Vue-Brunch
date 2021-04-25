@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="container">
     <Loading :active.sync="isLoading" />
-    <div class="text-right mt-4">
+    <div class="text-center mt-4 d-flex  justify-content-between  align-items-center">
+      <div></div>
       <button
-        class="btn btn-primary"
+        class="btn btn-dark"
         @click="openCouponModal('created')"
       >
         建立新的優惠券
       </button>
+      <div></div>
     </div>
     <table class="table mt-4">
       <thead>

@@ -2,9 +2,8 @@
   <div id="about" class="">
     <div class="d-flex container justify-content-center align-items-center">
       <div id="brand_story" class="w-50  my-5 text-light">
-        <h1>品牌故事</h1>
+        <h1>Brunch</h1>
         <p>
-          <span class="h2">熊樂</span>
           一個關於家與夢想的故事<br>
           提供咖啡、鬆餅、早午餐、飯料理、帕尼尼、三明治<br>
           提供免費wi-fi上網、舒適溫馨的用餐環境<br>

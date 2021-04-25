@@ -1,19 +1,10 @@
 <template>
   <div>
-    <Sidebar :token="token"/>
-    <div class="container-fluid">
-      <div class="row">
-        <main
-          role="main"
-          class="col-md-12 ml-sm-auto px-4"
-        >
-          <router-view
-            v-if="checkSuccess"
-            :token="token"
-          />
-        </main>
-      </div>
-    </div>
+    <Sidebar :token="token" class='sticky-top' />
+    <router-view
+      v-if="checkSuccess"
+      :token="token"
+    />
   </div>
 </template>
 

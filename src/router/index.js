@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/frontend/Shop.vue'
+import Dashboard from '../views/backend/layout/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -54,49 +55,49 @@ const routes = [
   // 巢狀路由
   {
     path: '/login',
-    name: 'Admin 頁面',
-    component: () => import('../views/frontend/Login.vue')
+    name: 'login',
+    component: () => import('../views/backend/Login.vue')
   },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/backend/layout/Dashboard.vue'),
+    component: Dashboard,
     children: [
       {
         path: 'products',
-        name: '產品頁面',
+        name: 'admin-products',
         component: () => import('../views/backend/Products.vue')
       },
       {
-        path: 'Storages',
-        name: '圖片頁面',
+        path: 'storages',
+        name: 'admin-storages',
         component: () => import('../views/backend/Storages.vue')
       },
       {
         path: 'orders',
-        name: '訂單列表',
+        name: 'admin-orders',
         component: () => import('../views/backend/Orders.vue')
       },
       {
         path: 'coupons',
-        name: '優惠券',
+        name: 'admin-coupons',
         component: () => import('../views/backend/Coupons.vue')
       },
       {
         path: 'storages',
-        name: '圖片列表',
+        name: 'admin-storages',
         component: () => import('../views/backend/Storages.vue'),
         meta: { requiresAuth: true }
       },
       // Customer
       {
         path: 'customer_order',
-        name: '用戶訂單',
+        name: 'admin-customer_order',
         component: () => import('../views/backend/CustomerOrders.vue')
       },
       {
         path: 'customer_checkout/:orderId',
-        name: '用戶訂單列表',
+        name: 'admin-customer_checkout',
         component: () => import('../views/backend/CustomerCheckout.vue')
       }
     ]

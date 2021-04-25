@@ -1,8 +1,8 @@
 <template>
+  <div class="container">
   <div class="my-5 row no-gutters justify-content-center">
     <Loading :active.sync="isLoading" />
-
-    <div class="col-md-6">
+    <div class='col-12'>
       <table class="table mt-4">
         <thead>
           <tr>
@@ -70,7 +70,7 @@
     <hr class="w-100">
 
     <form
-      class="col-md-6"
+      class="col-6"
       @submit.prevent="payOrder"
     >
       <table class="table">
@@ -144,7 +144,7 @@
       </table>
       <div
         v-if="order.paid === false"
-        class="text-right"
+        class="text-center"
       >
         <button class="btn btn-danger">
           確認付款去
@@ -152,6 +152,7 @@
       </div>
     </form>
   </div>
+</div>
 </template>
 
 <script>

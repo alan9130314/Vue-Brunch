@@ -1,13 +1,18 @@
 <template>
-  <div>
+  <div class="container">
     <Loading :active.sync="isLoading" />
-    <div class="text-right mt-4">
+    <div class="text-center mt-4 d-flex  justify-content-between align-items-center">
       <button
-        class="btn btn-primary"
+        class="btn btn-dark mb-3"
         @click="openModal('new')"
       >
         建立新的產品
       </button>
+      <Pagination
+      :pages="pagination"
+      @emitPages="getProducts"
+      class="Pagination"
+    />
     </div>
     <table class="table mt-4">
       <thead>
@@ -69,10 +74,12 @@
         </tr>
       </tbody>
     </table>
-    <Pagination
-      :pages="pagination"
-      @emitPages="getProducts"
-    />
+    <div class="Pagination">
+      <Pagination
+        :pages="pagination"
+        @emitPages="getProducts"
+      />
+    </div>
     <!-- Modal -->
     <div
       id="productModal"
@@ -490,4 +497,12 @@ export default {
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
+.Pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute; */
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
 </style>

@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-6">
             <h2>結帳完成</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea</p>
+            <p>感謝您的消費，訂單預計會在3天內受理，若有任何問題請洽詢客服人員</p>
             <a href="#"  @click.prevent="goPage()" class="btn btn-outline-dark mr-2 rounded-0 mb-4">繼續購物</a>
           </div>
           <div class="col-md-6">
@@ -119,7 +119,7 @@ export default {
     },
     goPage () {
       // console.log(this.$router)
-      this.$router.push('/')
+      this.$router.push('/products')
     }
   }
 }

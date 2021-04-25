@@ -122,7 +122,7 @@ export default {
           const errorData = error.response.data.errors
           errorData.forEach((err) => {
             this.$bus.$emit('message:push',
-              `建立訂單失敗惹，好糗Σ( ° △ °|||)︴
+              `建立訂單失敗
             ${err}`,
               'danger')
           })
@@ -137,7 +137,7 @@ export default {
     }
   },
   created () {
-    console.log(this.$route.params.id)
+    // console.log(this.$route.params.id)
     // 屬性 $route
     // 方法 $router
     const id = this.$route.params.id

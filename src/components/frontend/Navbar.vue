@@ -1,16 +1,17 @@
 <template>
-<div  id="header">
+<div  id="navbar">
   <div class="container">
     <nav class="navbar px-0 navbar-expand-lg navbar-dark ">
-      <router-link class="navbar-brand position-absolute" :to="{name:'Home'}"
-        style="left: 50%; transform: translate(-50%, -50%); top: 50%;">
-        <img src="@/assets/bearlove.jpg" alt="" style="width:5rem;height:95%">
-      </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse bg-transparent custom-header-md-open" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav justify-content-center align-items-center">
+          <li class="nav-item ">
+            <router-link class="navbar-brand " :to="{name:'Home'}">
+              <img src="@/assets/brunch_logo.jpg" alt="" style="width:5rem;height:5rem">
+            </router-link>
+          </li>
           <li class="nav-item ">
             <!-- <a class="nav-link pl-0" href="./product.html">產品列表</a> -->
             <router-link class="nav-link" :to="{ name: 'products'}" >產品列表</router-link>
@@ -25,13 +26,12 @@
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'checkout'}">結帳</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'admin'}">後台</router-link>
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="d-flex">
-        <a href="#"><i class="fas fa-heart mr-5 text-danger" ></i></a>
         <a href="#" @click.prevent="goPage()">
           <i class="fas fa-shopping-cart text-muted"></i>
           <span class="badge badge-pill badge-danger"
@@ -75,7 +75,7 @@ export default {
 }
 </script>
 <style lang="scss"  type="text/css" >
-  #header{
+  #navbar{
     background: rgba(0,0,0,0.85);
     .navbar{
       height: 5rem;
@@ -85,7 +85,7 @@ export default {
   ul.navbar-nav{
     background-color: rgb(38,38,38);
   }
-  .navbar-dark .navbar-nav .active > .nav-link{
+  .navbar-dark .navbar-nav .active > .nav-link,.router-link-exact-active{
     color: #C39A5A;
     border-bottom: 1px solid #C39A5A;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Loading :active.sync="isLoading" />
     <table class="table mt-4">
       <thead>
@@ -33,11 +33,13 @@
         </tr>
       </tbody>
     </table>
+    <div class="Pagination">
 
-    <Pagination
-      :pages="pagination"
-      @emitPages="getData"
-    />
+      <Pagination
+        :pages="pagination"
+        @emitPages="getData"
+      />
+    </div>
     <div
       id="deleteModal"
       class="modal fade"
@@ -151,3 +153,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .Pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

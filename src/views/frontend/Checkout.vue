@@ -9,8 +9,8 @@
             v-slot="{ invalid }">
             <form @submit.prevent="createOrder">
               <div class="bg-white p-4">
-                <h4 class="font-weight-bold">訂單內容</h4>
-                <p class="mt-4">聯絡資料</p>
+                <h4 class="font-weight-bold">聯繫資料</h4>
+                <p class="mt-4">訂購人資訊</p>
                   <div class="form-group mb-2">
                     <!-- input -->
                     <!-- rule 規則 -->
@@ -64,7 +64,7 @@
               </div>
               <div class="bg-white p-4 mt-3">
                 <h4 class="font-weight-bold">宅配資料</h4>
-                  <p class="mt-4 mb-3">宅配地址</p>
+                  <p class="mt-4 mb-3">訂購人地址</p>
                   <div class="form-group mb-2">
                     <validation-provider rules="required" v-slot="{ errors,classes}">
                     <label for="address" class="text-muted mb-0">住址</label>
@@ -119,6 +119,7 @@
                     </validation-provider>
                   </div>
                   <label for="coupon_code" class="text-muted ">優惠碼</label>
+                  <span class="ml-3 font-weight-light" style='font-size:.8px'>請輸入 75%OFF 僅至2022/4/30止</span>
                   <div class="input-group mb-3 input-group">
                     <input name="coupon_code" id="coupon_code"
                       v-model="coupon_code"
@@ -137,7 +138,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="message">留言</label>
+                    <label for="message">備註</label>
                     <textarea
                       id="message"
                       v-model="form.message"
@@ -149,14 +150,14 @@
               </div>
             <div class="d-flex flex-column-reverse flex-md-row mt-4 justify-content-between align-items-md-center align-items-end w-100">
               <!-- <a href="./product.html" class="btn btn-light text-dark mt-md-0 mt-3 py-3 px-7 rounded-0"><i class="fas fa-chevron-left mr-2"></i>上一步</a> -->
-              <router-link class="btn btn-light text-dark mt-md-0 mt-3 py-3 px-7 rounded-0" :to="{ name: '前台產品頁面'}"><i class="fas fa-chevron-left mr-2"></i>上一步</router-link>
+              <router-link class="btn btn-light text-dark mt-md-0 mt-3 py-3 px-7 rounded-0" :to="{ name: 'products'}"><i class="fas fa-chevron-left mr-2"></i>上一步</router-link>
                 <!-- <a href="./checkout-success.html" class="btn btn-dark py-3 px-7 rounded-0">下一步<i class="fas fa-chevron-right ml-2"></i></a> -->
               <!-- <router-link class="btn btn-dark py-3 px-7 rounded-0" :to="{ name: '結帳完成'}">下一步<i class="fas fa-chevron-right ml-2"></i></router-link> -->
               <button
               type="submit"
               class="btn btn-dark py-3 px-7 rounded-0"
               :disabled="invalid">
-              送出表單<i class="fas fa-chevron-right ml-2"></i>
+              結帳<i class="fas fa-chevron-right ml-2"></i>
               </button>
             </div>
             </form>
@@ -175,7 +176,7 @@
                     <p class="mb-0">x{{ item.quantity }}</p>
                   </div>
                   <div class="d-flex justify-content-between">
-                    <p class="text-muted mb-0"><del>NT${{ item.product.origin_price }}</del><small></small></p>
+                    <p class="text-muted mb-0" style="font-size:.8px"><del>NT${{ item.product.origin_price }}</del><small></small></p>
                     <p class="mb-0">NT${{ item.product.price }}</p>
                   </div>
                 </div>
@@ -187,12 +188,12 @@
                     <td class="text-right border-0 px-0 pt-4">NT${{ subTotal }}</td>
                   </tr>
                   <tr>
-                    <th scope="row" class="border-0 px-0 font-weight-normal">付款方式</th>
+                    <th scope="row" class="border-0 px-0 pt-0 font-weight-normal">付款方式</th>
                     <td class="text-right border-0 px-0 pt-0">{{ form.payment }}</td>
                   </tr>
                   <tr  v-if="coupon.enabled">
-                    <th scope="row" class="border-0 px-0 font-weight-normal">折扣金額</th>
-                    <td class="text-right border-0 px-0 pt-0 text-success"> {{ discountGold }}</td>
+                    <th scope="row" class="border-0 px-0 pt-0 font-weight-normal">折扣金額</th>
+                    <td class="text-right border-0 px-0 pt-0"> {{ discountGold }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -217,6 +218,7 @@ export default {
       cart: {},
       subTotal: 0,
       cartTotal: 0,
+      coupons: {},
       coupon: {},
       discountGold: 0,
       // coupon 不建議預先定義，如果預先定義的話通常是空值
@@ -237,6 +239,7 @@ export default {
   },
   created () {
     this.getCart()
+    this.getCoupons()
   },
   methods: {
     getCart () {
@@ -318,6 +321,7 @@ export default {
           this.getCart()
           console.log(response.data.data.id)
           this.$router.push(`/checkout_complete/${response.data.data.id}`)
+          this.$bus.$emit('get-cart')
         }
 
         this.isLoading = false
@@ -332,6 +336,19 @@ export default {
         })
 
         this.isLoading = false
+      })
+    },
+    getCoupons () {
+      this.isLoading = true
+
+      const url = `${process.env.VUE_APP_APIPATH}api/${this.uuid}/ec/coupon/search`
+      // const url = `${process.env.VUE_APP_APIPATH}/api/${this.uuid}/admin/ec/coupons`
+
+      this.$http.post(url).then((response) => {
+        this.coupons = response.data.data
+        console.log()
+
+        // this.isLoading = false
       })
     }
   }
