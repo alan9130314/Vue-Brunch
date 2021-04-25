@@ -8,11 +8,6 @@
       >
         建立新的產品
       </button>
-      <Pagination
-      :pages="pagination"
-      @emitPages="getProducts"
-      class="Pagination"
-    />
     </div>
     <table class="table mt-4">
       <thead>
@@ -100,11 +95,11 @@
               class="modal-title"
             >
               <span v-if="isNew">新增產品</span>
-              <span v-else>編輯 {{ tempProduct.title }} 產品</span>
+              <span v-else>編輯 {{ tempProduct.title }}</span>
             </h5>
             <button
               type="button"
-              class="close"
+              class="close text-light"
               data-dismiss="modal"
               aria-label="Close"
             >
@@ -356,7 +351,7 @@ export default {
     getProducts (page = 1) {
       this.isLoading = true
 
-      const api = `${process.env.VUE_APP_APIPATH}api/${this.uuid}/admin/ec/products?page=${page}`
+      const api = `${process.env.VUE_APP_APIPATH}api/${this.uuid}/admin/ec/products?page=${page}&paged=10&orderBy=category&sort=desc`
 
       this.$http.get(api).then((response) => {
         this.products = response.data.data

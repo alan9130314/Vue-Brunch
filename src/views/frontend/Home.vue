@@ -13,7 +13,7 @@
           src="@/assets/dish04.jpg" class="img-fluid  dish">
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center mt-md-0 mt-3 text-light">
-          <h2 class="font-weight-bold">熊樂咖啡廚房</h2>
+          <h2 class="font-weight-bold">Brunch</h2>
           <h5 class="font-weight-normal text-light mt-2">
             早午餐、咖啡、下午茶
           </h5>
@@ -30,37 +30,32 @@
       <div class="row mt-5">
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
-            <img
-              src="@/assets/dish02.jpg"
-              class="card-img-top rounded-0 dish"
-              alt="..."
-            />
+            <div class="card-mask">
+            <img src="@/assets/dish02.jpg" class="card-img-top rounded-0 dish" alt="..."/>
+            </div>
             <div class="card-body p-0">
               <h4 class="mb-0 mt-4">各式咖啡飲品</h4>
               <div class="d-flex justify-content-between  align-items-center mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   美式、拿鐵、卡布奇諾、特調、風味拿鐵
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
-                  <router-link class="" :to="{ name: 'products'}" >看菜單</router-link>
-                </button>
+                  <router-link class="btn btn-outline-dark rounded-0 text-nowrap" :to="{ name: 'products'}" >看菜單</router-link>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
-            <img src="@/assets/dish05.jpg" class="card-img-top rounded-0 dish" alt="..."
-            />
+            <div class="card-mask">
+            <img src="@/assets/dish05.jpg" class="card-img-top rounded-0 dish" alt="..."/>
+            </div>
             <div class="card-body p-0">
               <h4 class="mb-0 mt-4">早午餐</h4>
               <div class="d-flex justify-content-between  align-items-center mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   家常菜料理、手工麵包、自製鬆餅
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
-                  <router-link class="" :to="{ name: 'products'}" >看菜單</router-link>
-                </button>
+                  <router-link class="btn btn-outline-dark rounded-0 text-nowrap" :to="{ name: 'products'}" >開始訂購</router-link>
               </div>
             </div>
           </div>
@@ -167,6 +162,22 @@ export default {
     background-image: url(~@/assets/bg-cafe.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    .card{
+      .card-mask{
+        height: 50%;
+        width: 100%;
+        overflow: hidden;
+
+      }
+      img {
+        object-fit: cover;
+        transform:scale(1,1);
+        transition: all 1s ease-out;
+        &:hover{
+        transform:scale(1.2,1.2);
+        }
+      }
+    }
   }
   .dish{
     width: 100%;

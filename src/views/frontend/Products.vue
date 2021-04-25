@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-md-3"  v-for="item in products" :key="item.id">
           <div class="card mb-4 position-relative position-relative">
-            <div class="card-mash">
+            <div class="card-mask">
               <img :src=item.imageUrl[0] class="card-img-top rounded" alt="...">
             </div>
             <a href="#" @click.prevent="" class="text-dark">
@@ -199,14 +199,11 @@ export default {
       })
       this.isLoading = false
     },
-    getAllProducts () {
+    getCategory () {
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products?paged=${this.totalProducts}&orderBy=category&sort=desc`
       this.$http.get(api)
         .then((res) => {
-          // console.log(res.data.data)
           var categoryCounts = res.data.data.reduce((obj, item) => {
-            // console.log(obj)
-            // console.log(item)
             if (item.category in obj) {
               obj[item.category]++
             } else {
@@ -219,7 +216,6 @@ export default {
           this.totalTeaProducts = categoryCounts['茶']
           this.totalCTProducts = categoryCounts['茶那堤']
           this.totalSPProducts = categoryCounts['特調']
-          this.totalProducts = res.data.meta.pagination.total
         })
     }
   },
@@ -229,24 +225,8 @@ export default {
     const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products?`
     this.$http.get(url)
       .then((res) => {
-        // console.log(res.data.data)
-        // var categoryCounts = res.data.data.reduce((obj, item) => {
-        //   // console.log(obj)
-        //   // console.log(item)
-        //   if (item.category in obj) {
-        //     obj[item.category]++
-        //   } else {
-        //     obj[item.category] = 1
-        //   }
-        //   return obj
-        // }, {})
-        // this.totalBreadProducts = categoryCounts['麵包/點心']
-        // this.totalCoffeeProducts = categoryCounts['咖啡']
-        // this.totalTeaProducts = categoryCounts['茶']
-        // this.totalCTProducts = categoryCounts['茶那堤']
-        // this.totalSPProducts = categoryCounts['特調']
         this.totalProducts = res.data.meta.pagination.total
-        this.getAllProducts()
+        this.getCategory()
         this.getProducts(1)
       })
   },
@@ -257,7 +237,7 @@ export default {
 </script>
 <style lang="scss">
   .card{
-    .card-mash{
+    .card-mask{
       height: 200px;
       width: 100%;
       overflow: hidden;

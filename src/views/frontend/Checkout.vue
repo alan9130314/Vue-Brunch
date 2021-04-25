@@ -239,7 +239,6 @@ export default {
   },
   created () {
     this.getCart()
-    this.getCoupons()
   },
   methods: {
     getCart () {
@@ -260,7 +259,6 @@ export default {
       })
     },
     goCheckOut () {
-      console.log('結帳完成頁面')
       this.$router.push('/checkout_complete')
     },
     // 新增 coupon (實際是搜尋 coupon)
@@ -284,7 +282,7 @@ export default {
         if (errorData) {
           errorData.code.forEach((err) => {
             this.$bus.$emit('message:push',
-              `加入失敗惹，好糗Σ( ° △ °|||)︴
+              `加入失敗
             ${err}`,
               'danger')
           })
@@ -294,7 +292,7 @@ export default {
           const { message } = error.response.data
 
           this.$bus.$emit('message:push',
-            `加入失敗惹，好糗Σ( ° △ °|||)︴
+            `加入失敗
             ${message}`,
             'danger')
 
@@ -330,25 +328,12 @@ export default {
 
         errorData.forEach((err) => {
           this.$bus.$emit('message:push',
-            `建立訂單失敗惹，好糗Σ( ° △ °|||)︴
+            `建立訂單失敗
           ${err}`,
             'danger')
         })
 
         this.isLoading = false
-      })
-    },
-    getCoupons () {
-      this.isLoading = true
-
-      const url = `${process.env.VUE_APP_APIPATH}api/${this.uuid}/ec/coupon/search`
-      // const url = `${process.env.VUE_APP_APIPATH}/api/${this.uuid}/admin/ec/coupons`
-
-      this.$http.post(url).then((response) => {
-        this.coupons = response.data.data
-        console.log()
-
-        // this.isLoading = false
       })
     }
   }
