@@ -1,4 +1,4 @@
-# demo apge 
+# demo page
 Github Pages:
 https://alan9130314.github.io/Vue-Brunch/dist/#/
 
