@@ -1,6 +1,6 @@
 # demo apge 
 Github Pages:
-https://alan9130314.github.io/Week6/dist/#/
+https://alan9130314.github.io/Vue-Brunch/dist/#/
 
 Skills:
 Vue 2, Vue CLI, Axios, JavaScript, JQuery,
