@@ -3,27 +3,19 @@
     <Loading :active.sync="isLoading" />
     <div class="container mt-md-5 mt-3 mb-7">
       <div class="d-flex mb-3">
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="" @click="getProducts(1, '')">
-          全部({{ this.totalProducts }})
-        </button>
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="麵包/點心" @click="getProducts(1, '麵包/點心')">
-          麵包/點心({{ this.totalBreadProducts }})
-        </button>
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="咖啡" @click="getProducts(1, '咖啡')">
-          咖啡({{ this.totalCoffeeProducts }})
-        </button>
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="茶" @click="getProducts(1, '茶')">
-          茶({{ this.totalTeaProducts }})
-        </button>
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="茶那堤" @click="getProducts(1, '茶那堤')">
-          茶那堤({{ this.totalCTProducts }})
-        </button>
-        <button class="btn btn-outline-dark mr-3 filter" data-filter="特調" @click="getProducts(1, '特調')">
-          特調({{ this.totalSPProducts }})
-        </button>
-      </div>
-      <div class="row">
-        <div class="col-md-3"  v-for="item in products" :key="item.id">
+        <div class="col-2">
+          <ul class="list-group">
+            <li class="list-group-item filter" data-filter="" @click="getProducts(1, '')">全部({{ this.totalProducts }})</li>
+            <li class="list-group-item filter" data-filter="麵包/點心" @click="getProducts(1, '麵包/點心')">麵包/點心({{ this.totalBreadProducts }})</li>
+            <li class="list-group-item filter" data-filter="咖啡" @click="getProducts(1, '咖啡')">咖啡({{ this.totalCoffeeProducts }})</li>
+            <li class="list-group-item filter" data-filter="茶" @click="getProducts(1, '茶')">茶({{ this.totalTeaProducts }})</li>
+            <li class="list-group-item filter" data-filter="茶那堤" @click="getProducts(1, '茶那堤')">茶那堤({{ this.totalCTProducts }})</li>
+            <li class="list-group-item filter" data-filter="特調" @click="getProducts(1, '特調')">特調({{ this.totalSPProducts }})</li>
+          </ul>
+        </div>
+        <div class="col-10">
+          <div class="row">
+                    <div class="col-3 col-md-3"  v-for="item in products" :key="item.id">
           <div class="card mb-4 position-relative position-relative">
             <div class="card-mask">
               <img :src=item.imageUrl[0] class="card-img-top rounded" alt="...">
@@ -51,6 +43,8 @@
               加到購物車
               </button>
             </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -128,6 +122,7 @@ export default {
       this.$router.push(`/product/${item.id}`)
     },
     getProducts (page = 1, filter = '') {
+      this.isLoading = true
       var api = ''
       if (filter === '') {
         this.filterFlag = false
@@ -254,4 +249,10 @@ export default {
     }
     }
   }
+  .list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #000000d9;
+    border-color: #000000d9;
+}
 </style>
